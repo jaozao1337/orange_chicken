@@ -61,6 +61,26 @@
             background-color: #fffdf5;
             border: 1px solid #fde68a;
         }
+
+        /* Classe para itens de lista de compra (maior fonte e flex para checkbox) */
+        .purchase-item {
+            font-size: 1.125rem; /* Aumento da fonte, equivalente a text-lg */
+            display: flex;
+            align-items: center;
+            padding: 4px 0;
+        }
+
+        .purchase-item input[type="checkbox"] {
+            margin-right: 12px;
+            min-width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 4px;
+        }
+
+        /* Aumento da fonte para listas de ingredientes e modo de preparo */
+        .recipe-list-item {
+            font-size: 1.1rem; /* Aumenta um pouco mais que o default */
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8">
@@ -78,19 +98,19 @@
 
         <!-- NAVEGAÇÃO POR ABAS -->
         <div class="flex flex-wrap border-b border-yellow-300">
-            <button class="tab-button active px-4 py-3 sm:px-6 text-sm sm:text-base" data-tab="intro">
+            <button class="tab-button active px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="intro">
                 Introdução
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-sm sm:text-base" data-tab="chicken">
+            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="chicken">
                 Frango Agridoce (2Kg)
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-sm sm:text-base" data-tab="rice">
+            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="rice">
                 Arroz Soltinho
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-sm sm:text-base" data-tab="pie">
+            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="pie">
                 Torta de Limão Meringada
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-sm sm:text-base" data-tab="list">
+            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="list">
                 Lista de Compras
             </button>
         </div>
@@ -103,10 +123,10 @@
                 <h2 class="text-3xl font-bold mb-4 text-orange-600">
                     O Plano Perfeito para 4 Faminos!
                 </h2>
-                <p class="text-lg mb-6">
-                    Este menu foi escalado para garantir porções *muito* generosas, incluindo 2kg de Frango Agridoce e uma Torta de Limão robusta e saborosa, finalizada com um merengue perfeito. Prepare-se para uma experiência culinária deliciosa.
+                <p class="text-xl mb-6">
+                    Este menu foi escalado para garantir porções <span class="font-bold">muito</span> generosas, incluindo 2kg de Frango Agridoce e uma Torta de Limão robusta e saborosa, finalizada com um merengue perfeito. Prepare-se para uma experiência culinária deliciosa.
                 </p>
-                <div class="p-4 rounded-lg meringue-alert text-sm">
+                <div class="p-4 rounded-lg meringue-alert text-lg">
                     <p class="font-semibold text-orange-800">Dica do Chef:</p>
                     <p>
                         A Torta de Limão será assada. O Merengue, no entanto, deve ser feito e adicionado apenas no dia da finalização e servi-la, garantindo a textura e o frescor ideais.
@@ -119,17 +139,17 @@
                 <h2 class="text-3xl font-bold mb-6 text-orange-600">
                     Frango Agridoce (Orange Chicken) Gigante
                 </h2>
-                <p class="text-lg mb-6 text-gray-700">
+                <p class="text-xl mb-6 text-gray-700">
                     Esta receita está dimensionada para 2kg de filé de peito de frango, garantindo que ninguém saia da mesa com fome!
                 </p>
 
                 <!-- Ingredientes Card -->
                 <div class="recipe-card p-4 rounded-lg mb-6">
-                    <h3 class="text-xl font-semibold text-orange-700 mb-3">Ingredientes (2kg)</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <h3 class="text-2xl font-semibold text-orange-700 mb-3">Ingredientes (2kg)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
                         <div>
                             <p class="font-bold">Para o Frango:</p>
-                            <ul class="list-disc ml-5">
+                            <ul class="list-disc ml-5 space-y-1 recipe-list-item">
                                 <li>2 kg de Filé de Peito de Frango (cortado em cubos de 3cm)</li>
                                 <li>4 Ovos Grandes</li>
                                 <li>4 colheres (sopa) de Shoyu <span class="text-gray-500">(para a marinada)</span></li>
@@ -140,7 +160,7 @@
                         </div>
                         <div>
                             <p class="font-bold">Para o Molho Agridoce:</p>
-                            <ul class="list-disc ml-5">
+                            <ul class="list-disc ml-5 space-y-1 recipe-list-item">
                                 <li>1 Litro (4 xícaras) de Suco de Laranja Fresco</li>
                                 <li>1/2 xícara de Vinagre de Arroz (ou branco)</li>
                                 <li>1/4 xícara de Molho Shoyu</li>
@@ -157,28 +177,28 @@
 
                 <!-- Modo de Preparo Aprimorado -->
                 <h3 class="text-2xl font-semibold mb-3 text-orange-700">Modo de Preparo</h3>
-                <ol class="list-decimal ml-6 space-y-4">
-                    <li><span class="font-bold">1. Marinada (O Segredo do Sabor):</span>
-                        Em uma tigela grande, tempere os cubos de frango com sal, pimenta-do-reino e as **4 colheres de Shoyu**. Misture bem para que todos os pedaços sejam envolvidos. Cubra e deixe marinar na geladeira por, no mínimo, **20 a 30 minutos** para absorver o sabor.
+                <ol class="list-decimal ml-6 space-y-4 text-xl">
+                    <li><span class="font-bold">Marinada (O Segredo do Sabor):</span>
+                        Em uma tigela grande, tempere os cubos de frango com sal, pimenta-do-reino e as <span class="font-bold">4 colheres de Shoyu</span>. Misture bem para que todos os pedaços sejam envolvidos. Cubra e deixe marinar na geladeira por, no mínimo, <span class="font-bold">20 a 30 minutos</span> para absorver o sabor.
                     </li>
-                    <li><span class="font-bold">2. Empanamento para Crocância Extrema:</span>
+                    <li><span class="font-bold">Empanamento para Crocância Extrema:</span>
                         Prepare duas tigelas: em uma, bata os 4 ovos; na outra, coloque todo o Amido de Milho. Para garantir a crocância, faça um empanamento de dupla camada:
-                        <ul class="list-disc ml-6 mt-1 text-sm text-gray-700">
-                            <li>Passe o frango marinado (sem escorrer o líquido) primeiro no **ovo batido**.</li>
-                            <li>Em seguida, passe no **Amido de Milho**, cobrindo bem.</li>
-                            <li>**Repita a operação:** passe de novo no **ovo** e, por fim, novamente no **Amido de Milho**. Reserve.</li>
+                        <ul class="list-disc ml-6 mt-1 text-lg text-gray-700">
+                            <li>Passe o frango marinado (sem escorrer o líquido) primeiro no <span class="font-bold">ovo batido</span>.</li>
+                            <li>Em seguida, passe no <span class="font-bold">Amido de Milho</span>, cobrindo bem.</li>
+                            <li><span class="font-bold">Repita a operação:</span> passe de novo no <span class="font-bold">ovo</span> e, por fim, novamente no <span class="font-bold">Amido de Milho</span>. Reserve.</li>
                         </ul>
                     </li>
-                    <li><span class="font-bold">3. Fritura em Lotes:</span>
-                        Aqueça o óleo em uma panela funda (ou fritadeira) a **180°C**. Frite o frango em **pequenos lotes** para não diminuir a temperatura do óleo. Frite por 3 a 4 minutos, ou até ficarem dourados e muito crocantes. Retire e escorra em papel toalha. Reserve.
+                    <li><span class="font-bold">Fritura em Lotes:</span>
+                        Aqueça o óleo em uma panela funda (ou fritadeira) a <span class="font-bold">180°C</span>. Frite o frango em <span class="font-bold">pequenos lotes</span> para não diminuir a temperatura do óleo. Frite por 3 a 4 minutos, ou até ficarem dourados e muito crocantes. Retire e escorra em papel toalha. Reserve.
                     </li>
-                    <li><span class="font-bold">4. Preparo do Molho:</span>
+                    <li><span class="font-bold">Preparo do Molho:</span>
                         Em uma panela grande, misture o suco de laranja, vinagre de arroz, shoyu, açúcar (ou mel), gengibre ralado e alho picado. Leve ao fogo médio e deixe ferver, cozinhando por 5 minutos para que os sabores se incorporem.
                     </li>
-                    <li><span class="font-bold">5. Engrossar:</span>
+                    <li><span class="font-bold">Engrossar:</span>
                         Em uma xícara, misture as 4 colheres de amido de milho com a 1/2 xícara de água até dissolver totalmente. Despeje lentamente no molho fervente, mexendo vigorosamente com um fouet ou colher, até que o molho engrosse e atinja a consistência de calda.
                     </li>
-                    <li><span class="font-bold">6. Finalização e Serviço:</span>
+                    <li><span class="font-bold">Finalização e Serviço:</span>
                         Desligue o fogo. Adicione o frango crocante frito ao molho e misture rapidamente para cobrir todos os pedaços. Sirva imediatamente, salpicado com sementes de gergelim e cebolinha picada, acompanhado do arroz.
                     </li>
                 </ol>
@@ -189,14 +209,14 @@
                 <h2 class="text-3xl font-bold mb-6 text-orange-600">
                     Arroz Branco Soltinho
                 </h2>
-                <p class="text-lg mb-6 text-gray-700">
+                <p class="text-xl mb-6 text-gray-700">
                     O acompanhamento perfeito para o seu Orange Chicken, também em porção reforçada.
                 </p>
 
                 <!-- Ingredientes Card -->
                 <div class="recipe-card p-4 rounded-lg mb-6">
-                    <h3 class="text-xl font-semibold text-orange-700 mb-3">Ingredientes</h3>
-                    <ul class="list-disc ml-5 text-sm">
+                    <h3 class="text-2xl font-semibold text-orange-700 mb-3">Ingredientes</h3>
+                    <ul class="list-disc ml-5 space-y-1 text-lg">
                         <li>2.5 xícaras de Arroz Branco (lavado e escorrido, se preferir)</li>
                         <li>5 xícaras de Água Fervente</li>
                         <li>3 Dentes de Alho amassados</li>
@@ -207,11 +227,12 @@
 
                 <!-- Modo de Preparo -->
                 <h3 class="text-2xl font-semibold mb-3 text-orange-700">Modo de Preparo</h3>
-                <ol class="list-decimal ml-6 space-y-3">
+                <ol class="list-decimal ml-6 space-y-3 text-xl">
                     <li><span class="font-bold">Refogado:</span> Em uma panela, aqueça o azeite/óleo e refogue o alho amassado até dourar levemente.</li>
                     <li><span class="font-bold">Adicionar Arroz:</span> Adicione o arroz escorrido e mexa por cerca de 1 a 2 minutos para envolver bem os grãos no óleo. Adicione o sal.</li>
                     <li><span class="font-bold">Cozimento:</span> Acrescente a água fervente. Quando a água secar e o arroz estiver com "furinhos" na superfície, tampe a panela, abaixe o fogo ao mínimo e deixe cozinhar por mais 10 a 15 minutos.</li>
                     <li><span class="font-bold">Finalização:</span> Desligue o fogo e deixe o arroz descansar na panela tampada por 5 minutos antes de servir. Solte-o com um garfo.</li>
+                    <li><span class="font-bold">Dica de Serviço:</span> Sirva o arroz em uma travessa separada para que cada um se sirva à vontade.</li>
                 </ol>
             </section>
 
@@ -220,24 +241,24 @@
                 <h2 class="text-3xl font-bold mb-6 text-orange-600">
                     Torta de Limão Assada com Merengue Suíço
                 </h2>
-                <p class="text-lg mb-6 text-gray-700">
+                <p class="text-xl mb-6 text-gray-700">
                     Uma torta cremosa com recheio de leite condensado/creme de leite e finalizada com merengue. A massa vai ao forno, mas o recheio é assado rapidamente.
                 </p>
 
                 <!-- Ingredientes Card -->
                 <div class="recipe-card p-4 rounded-lg mb-6">
-                    <h3 class="text-xl font-semibold text-orange-700 mb-3">Ingredientes (Forma Removível de 24-26cm)</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <h3 class="text-2xl font-semibold text-orange-700 mb-3">Ingredientes (Forma Removível de 24-26cm)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-lg">
                         <div>
                             <p class="font-bold">Para a Massa:</p>
-                            <ul class="list-disc ml-5">
+                            <ul class="list-disc ml-5 space-y-1 recipe-list-item">
                                 <li>400g de Bolacha Maizena (aprox. 2 pacotes)</li>
                                 <li>200g de Manteiga sem Sal (derretida)</li>
                             </ul>
                         </div>
                         <div>
                             <p class="font-bold">Para o Recheio (Assado):</p>
-                            <ul class="list-disc ml-5">
+                            <ul class="list-disc ml-5 space-y-1 recipe-list-item">
                                 <li>2 Latas de Leite Condensado (395g cada)</li>
                                 <li>2 Caixas/Latas de Creme de Leite (200g cada)</li>
                                 <li>1/2 xícara de Suco de Limão (cerca de 4-6 limões)</li>
@@ -246,11 +267,11 @@
                         </div>
                         <div>
                             <p class="font-bold">Para o Merengue Suíço (Dia de Servir):</p>
-                            <ul class="list-disc ml-5">
+                            <ul class="list-disc ml-5 space-y-1 recipe-list-item">
                                 <li>4 Claras de Ovo</li>
                                 <li>1 xícara de Açúcar Refinado (200g)</li>
                             </ul>
-                            <div class="mt-2 p-2 rounded bg-red-100 text-red-800">
+                            <div class="mt-2 p-2 rounded bg-red-100 text-red-800 text-sm">
                                 *Merengue feito na hora!
                             </div>
                         </div>
@@ -260,14 +281,14 @@
                 <!-- Modo de Preparo -->
                 <h3 class="text-2xl font-semibold mb-3 text-orange-700">Modo de Preparo</h3>
                 <h4 class="text-xl font-medium mt-4 mb-2">1. Massa e Pré-Assado:</h4>
-                <ol class="list-decimal ml-6 space-y-2">
+                <ol class="list-decimal ml-6 space-y-2 text-xl">
                     <li>Triture a Bolacha Maizena até virar uma farofa fina. Misture a farofa com a manteiga derretida até formar uma massa homogênea.</li>
                     <li>Forre o fundo e as laterais de uma forma de fundo removível (24-26cm) com essa massa. Pressione bem.</li>
                     <li>Leve ao forno pré-aquecido a 180°C por cerca de 10 a 15 minutos, até que as bordas estejam levemente douradas. Retire e reserve.</li>
                 </ol>
 
                 <h4 class="text-xl font-medium mt-4 mb-2">2. Recheio e Assado Rápido:</h4>
-                <ol class="list-decimal ml-6 space-y-2" start="4">
+                <ol class="list-decimal ml-6 space-y-2 text-xl" start="4">
                     <li>No liquidificador ou batedeira, bata o Leite Condensado, o Creme de Leite e as raspas de limão. Adicione o suco de limão aos poucos, enquanto bate, até que a mistura engrosse.</li>
                     <li>Despeje o recheio sobre a massa pré-assada.</li>
                     <li>Leve a torta de volta ao forno a 160°C por apenas 15 a 20 minutos. O recheio deve firmar nas bordas, mas o centro deve estar levemente mole. Isso garante a cremosidade.</li>
@@ -275,80 +296,137 @@
                 </ol>
 
                 <h4 class="text-xl font-medium mt-4 mb-2">3. Merengue Suíço (Apenas no Dia de Servir):</h4>
-                <ol class="list-decimal ml-6 space-y-2" start="7">
+                <ol class="list-decimal ml-6 space-y-2 text-xl" start="7">
                     <li>Em banho-maria (bacia sobre panela com água fervente, sem tocar na água), misture as claras e o açúcar. Mexa vigorosamente até que o açúcar dissolva completamente e a mistura atinja cerca de 60°C (ou até que, ao tocar, você não sinta mais os grãos de açúcar).</li>
                     <li>Retire do banho-maria e bata na batedeira em velocidade alta até que o merengue fique firme, brilhante e frio.</li>
                     <li>Decore a torta gelada com o merengue usando um saco de confeitar ou espátula. Se quiser um toque dourado, use um maçarico culinário ou leve a torta rapidamente (menos de 1 minuto) sob o grill do forno.</li>
                 </ol>
             </section>
 
-            <!-- 5. LISTA DE COMPRAS -->
+            <!-- 5. LISTA DE COMPRAS (COM CHECKBOXES) -->
             <section id="list" class="tab-content hidden">
                 <h2 class="text-3xl font-bold mb-6 text-orange-600">
                     Lista de Compras Completíssima
                 </h2>
-                <p class="text-lg mb-6 text-gray-700">
-                    Tudo o que você precisa, detalhado por seção do mercado, com margem de segurança nas quantidades para evitar surpresas.
+                <p class="text-xl mb-6 text-gray-700">
+                    Use as caixas de seleção para marcar os itens que você já comprou no mercado.
                 </p>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <!-- Coluna 1: Proteínas, Laticínios e Enlatados -->
                     <div>
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-xl font-semibold text-yellow-800 mb-3">Aves e Ovos</h3>
-                            <ul class="list-disc ml-5 space-y-1">
-                                <li><span class="font-bold">2 kg</span> de Filé de Peito de Frango</li>
-                                <li><span class="font-bold">8 a 10 unidades</span> de Ovos Grandes (4 para o frango, 4 para o merengue + extras)</li>
-                            </ul>
+                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Aves e Ovos</h3>
+                            <div class="ml-5 space-y-1">
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">2 kg</span> de Filé de Peito de Frango
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">8 a 10 unidades</span> de Ovos Grandes
+                                </label>
+                            </div>
                         </div>
 
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-xl font-semibold text-yellow-800 mb-3">Laticínios e Geladeira</h3>
-                            <ul class="list-disc ml-5 space-y-1">
-                                <li><span class="font-bold">200g</span> de Manteiga sem Sal</li>
-                                <li><span class="font-bold">2 latas/caixas (aprox. 400g total)</span> de Creme de Leite</li>
-                                <li><span class="font-bold">2 latas (aprox. 790g total)</span> de Leite Condensado</li>
-                            </ul>
+                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Laticínios e Geladeira</h3>
+                            <div class="ml-5 space-y-1">
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">200g</span> de Manteiga sem Sal
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">2 latas/caixas (aprox. 400g total)</span> de Creme de Leite
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">2 latas (aprox. 790g total)</span> de Leite Condensado
+                                </label>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Coluna 2: Hortifrúti e Mercearia -->
                     <div>
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-xl font-semibold text-yellow-800 mb-3">Hortifrúti (Frutas e Legumes)</h3>
-                            <ul class="list-disc ml-5 space-y-1">
-                                <li><span class="font-bold">6 a 8 unidades</span> de Limão Taiti/Siciliano (para suco e raspas)</li>
-                                <li><span class="font-bold">4 a 6 unidades</span> de Laranja (para 1L de suco)</li>
-                                <li><span class="font-bold">1 maço</span> de Cebolinha Verde</li>
-                                <li><span class="font-bold">1 cabeça</span> de Alho Fresco</li>
-                                <li><span class="font-bold">1 pedaço pequeno</span> de Gengibre Fresco</li>
-                            </ul>
+                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Hortifrúti (Frutas e Legumes)</h3>
+                            <div class="ml-5 space-y-1">
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">6 a 8 unidades</span> de Limão Taiti/Siciliano
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">4 a 6 unidades</span> de Laranja
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 maço</span> de Cebolinha Verde
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 cabeça</span> de Alho Fresco
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 pedaço pequeno</span> de Gengibre Fresco
+                                </label>
+                            </div>
                         </div>
 
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-xl font-semibold text-yellow-800 mb-3">Mercearia e Temperos</h3>
-                            <ul class="list-disc ml-5 space-y-1">
-                                <li><span class="font-bold">400g</span> de Bolacha Maizena (2 pacotes)</li>
-                                <li><span class="font-bold">1 kg</span> de Arroz Branco</li>
-                                <li><span class="font-bold">500g</span> de Amido de Milho (Maizena)</li>
-                                <li><span class="font-bold">1 kg</span> de Açúcar Refinado</li>
-                                <li><span class="font-bold">1 garrafa</span> de Óleo Vegetal (para fritura)</li>
-                                <li><span class="font-bold">1 garrafa</span> de Molho Shoyu</li>
-                                <li><span class="font-bold">1 garrafa</span> de Vinagre de Arroz ou Branco</li>
-                                <li><span class="font-bold">1 pacote</span> de Sementes de Gergelim</li>
-                                <li><span class="font-bold">Sal e Pimenta</span> do Reino a gosto (verifique seu estoque)</li>
-                            </ul>
+                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Mercearia e Temperos</h3>
+                            <div class="ml-5 space-y-1">
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">400g</span> de Bolacha Maizena (2 pacotes)
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 kg</span> de Arroz Branco
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">500g</span> de Amido de Milho (Maizena)
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 kg</span> de Açúcar Refinado
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 garrafa</span> de Óleo Vegetal
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 garrafa</span> de Molho Shoyu
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 garrafa</span> de Vinagre de Arroz ou Branco
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">1 pacote</span> de Sementes de Gergelim
+                                </label>
+                                <label class="purchase-item">
+                                    <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
+                                    <span class="font-bold">Sal e Pimenta</span> do Reino a gosto (verifique seu estoque)
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Estimativa de Custo -->
-                <div class="p-4 rounded-lg mt-6 meringue-alert">
-                    <h3 class="font-bold text-lg text-orange-800 mb-1">Estimativa de Custo (Baseado em uma localização Genérica no Brasil)</h3>
-                    <p class="text-sm">
-                        Considerando a inflação e a sua localização (Caçador/SC), com uma margem de erro de 15% para mais, o custo total estimado da sua lista de compras varia entre:
+                <div class="p-4 rounded-lg mt-6 meringue-alert text-lg">
+                    <h3 class="font-bold text-2xl text-orange-800 mb-1">Estimativa de Custo</h3>
+                    <p class="text-lg">
+                        O custo total estimado da sua lista de compras (incluindo margem de 15%):
                     </p>
-                    <p class="text-2xl font-extrabold text-orange-600 mt-2">
+                    <p class="text-3xl font-extrabold text-orange-600 mt-2">
                         R$ 175,00 a R$ 205,00
                     </p>
                     <p class="text-xs mt-1">
