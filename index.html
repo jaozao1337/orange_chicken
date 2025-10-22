@@ -62,12 +62,17 @@
             border: 1px solid #fde68a;
         }
 
-        /* Classe para itens de lista de compra (maior fonte e flex para checkbox) */
+        /* Classe para itens de lista de compra (ajustada para mobile/desktop) */
         .purchase-item {
-            font-size: 1.125rem; /* Aumento da fonte, equivalente a text-lg */
+            font-size: 1rem; /* Base (mobile) */
             display: flex;
             align-items: center;
             padding: 4px 0;
+        }
+        @media (min-width: 640px) { /* sm: */
+            .purchase-item {
+                font-size: 1.125rem; /* Desktop (text-lg) */
+            }
         }
 
         .purchase-item input[type="checkbox"] {
@@ -79,38 +84,43 @@
 
         /* Aumento da fonte para listas de ingredientes e modo de preparo */
         .recipe-list-item {
-            font-size: 1.1rem; /* Aumenta um pouco mais que o default */
+            font-size: 1rem; /* Base (mobile) */
+        }
+        @media (min-width: 640px) { /* sm: */
+            .recipe-list-item {
+                font-size: 1.1rem; /* Desktop */
+            }
         }
     </style>
 </head>
 <body class="p-4 sm:p-8">
 
     <div class="max-w-6xl mx-auto">
-        <!-- HEADER CÍTRICO (TÍTULO E SUBTÍTULO ATUALIZADOS) -->
+        <!-- HEADER CÍTRICO -->
         <header class="text-center mb-10 p-6 rounded-xl bg-gradient-to-r from-orange-400 to-yellow-400 shadow-xl">
             <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
                 ORANGE CHICKEN E LEMON PIE!!
             </h1>
-            <p class="text-xl sm:text-2xl mt-2 text-yellow-50 font-medium">
+            <p class="text-lg sm:text-2xl mt-2 text-yellow-50 font-medium">
                 Jantar dia 25/10/25!
             </p>
         </header>
 
         <!-- NAVEGAÇÃO POR ABAS -->
         <div class="flex flex-wrap border-b border-yellow-300">
-            <button class="tab-button active px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="intro">
+            <button class="tab-button active px-3 py-2 sm:px-6 text-sm sm:text-lg" data-tab="intro">
                 Introdução
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="chicken">
+            <button class="tab-button px-3 py-2 sm:px-6 text-sm sm:text-lg" data-tab="chicken">
                 Frango Agridoce (2Kg)
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="rice">
+            <button class="tab-button px-3 py-2 sm:px-6 text-sm sm:text-lg" data-tab="rice">
                 Arroz Soltinho
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="pie">
+            <button class="tab-button px-3 py-2 sm:px-6 text-sm sm:text-lg" data-tab="pie">
                 Torta de Limão Meringada
             </button>
-            <button class="tab-button px-4 py-3 sm:px-6 text-base sm:text-lg" data-tab="list">
+            <button class="tab-button px-3 py-2 sm:px-6 text-sm sm:text-lg" data-tab="list">
                 Lista de Compras
             </button>
         </div>
@@ -120,13 +130,13 @@
 
             <!-- 1. INTRODUÇÃO -->
             <section id="intro" class="tab-content">
-                <h2 class="text-3xl font-bold mb-4 text-orange-600">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-orange-600">
                     O Plano Perfeito para 4 Faminos!
                 </h2>
-                <p class="text-xl mb-6">
+                <p class="text-lg sm:text-xl mb-6">
                     Este menu foi escalado para garantir porções <span class="font-bold">muito</span> generosas, incluindo 2kg de Frango Agridoce e uma Torta de Limão robusta e saborosa, finalizada com um merengue perfeito. Prepare-se para uma experiência culinária deliciosa.
                 </p>
-                <div class="p-4 rounded-lg meringue-alert text-lg">
+                <div class="p-4 rounded-lg meringue-alert text-base sm:text-lg">
                     <p class="font-semibold text-orange-800">Dica do Chef:</p>
                     <p>
                         A Torta de Limão será assada. O Merengue, no entanto, deve ser feito e adicionado apenas no dia da finalização e servi-la, garantindo a textura e o frescor ideais.
@@ -136,16 +146,16 @@
 
             <!-- 2. ORANGE CHICKEN (FRANGO AGRIDOCE) - 2KG -->
             <section id="chicken" class="tab-content hidden">
-                <h2 class="text-3xl font-bold mb-6 text-orange-600">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-orange-600">
                     Frango Agridoce (Orange Chicken) Gigante
                 </h2>
-                <p class="text-xl mb-6 text-gray-700">
+                <p class="text-lg sm:text-xl mb-6 text-gray-700">
                     Esta receita está dimensionada para 2kg de filé de peito de frango, garantindo que ninguém saia da mesa com fome!
                 </p>
 
                 <!-- Ingredientes Card -->
                 <div class="recipe-card p-4 rounded-lg mb-6">
-                    <h3 class="text-2xl font-semibold text-orange-700 mb-3">Ingredientes (2kg)</h3>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-orange-700 mb-3">Ingredientes (2kg)</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
                         <div>
                             <p class="font-bold">Para o Frango:</p>
@@ -177,13 +187,13 @@
 
                 <!-- Modo de Preparo Aprimorado -->
                 <h3 class="text-2xl font-semibold mb-3 text-orange-700">Modo de Preparo</h3>
-                <ol class="list-decimal ml-6 space-y-4 text-xl">
+                <ol class="list-decimal ml-6 space-y-4 text-base sm:text-xl">
                     <li><span class="font-bold">Marinada (O Segredo do Sabor):</span>
                         Em uma tigela grande, tempere os cubos de frango com sal, pimenta-do-reino e as <span class="font-bold">4 colheres de Shoyu</span>. Misture bem para que todos os pedaços sejam envolvidos. Cubra e deixe marinar na geladeira por, no mínimo, <span class="font-bold">20 a 30 minutos</span> para absorver o sabor.
                     </li>
                     <li><span class="font-bold">Empanamento para Crocância Extrema:</span>
                         Prepare duas tigelas: em uma, bata os 4 ovos; na outra, coloque todo o Amido de Milho. Para garantir a crocância, faça um empanamento de dupla camada:
-                        <ul class="list-disc ml-6 mt-1 text-lg text-gray-700">
+                        <ul class="list-disc ml-6 mt-1 text-base text-gray-700">
                             <li>Passe o frango marinado (sem escorrer o líquido) primeiro no <span class="font-bold">ovo batido</span>.</li>
                             <li>Em seguida, passe no <span class="font-bold">Amido de Milho</span>, cobrindo bem.</li>
                             <li><span class="font-bold">Repita a operação:</span> passe de novo no <span class="font-bold">ovo</span> e, por fim, novamente no <span class="font-bold">Amido de Milho</span>. Reserve.</li>
@@ -206,17 +216,17 @@
 
             <!-- 3. ARROZ -->
             <section id="rice" class="tab-content hidden">
-                <h2 class="text-3xl font-bold mb-6 text-orange-600">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-orange-600">
                     Arroz Branco Soltinho
                 </h2>
-                <p class="text-xl mb-6 text-gray-700">
+                <p class="text-lg sm:text-xl mb-6 text-gray-700">
                     O acompanhamento perfeito para o seu Orange Chicken, também em porção reforçada.
                 </p>
 
                 <!-- Ingredientes Card -->
                 <div class="recipe-card p-4 rounded-lg mb-6">
-                    <h3 class="text-2xl font-semibold text-orange-700 mb-3">Ingredientes</h3>
-                    <ul class="list-disc ml-5 space-y-1 text-lg">
+                    <h3 class="text-xl sm:text-2xl font-semibold text-orange-700 mb-3">Ingredientes</h3>
+                    <ul class="list-disc ml-5 space-y-1 text-base sm:text-lg">
                         <li>2.5 xícaras de Arroz Branco (lavado e escorrido, se preferir)</li>
                         <li>5 xícaras de Água Fervente</li>
                         <li>3 Dentes de Alho amassados</li>
@@ -227,7 +237,7 @@
 
                 <!-- Modo de Preparo -->
                 <h3 class="text-2xl font-semibold mb-3 text-orange-700">Modo de Preparo</h3>
-                <ol class="list-decimal ml-6 space-y-3 text-xl">
+                <ol class="list-decimal ml-6 space-y-3 text-base sm:text-xl">
                     <li><span class="font-bold">Refogado:</span> Em uma panela, aqueça o azeite/óleo e refogue o alho amassado até dourar levemente.</li>
                     <li><span class="font-bold">Adicionar Arroz:</span> Adicione o arroz escorrido e mexa por cerca de 1 a 2 minutos para envolver bem os grãos no óleo. Adicione o sal.</li>
                     <li><span class="font-bold">Cozimento:</span> Acrescente a água fervente. Quando a água secar e o arroz estiver com "furinhos" na superfície, tampe a panela, abaixe o fogo ao mínimo e deixe cozinhar por mais 10 a 15 minutos.</li>
@@ -238,16 +248,16 @@
 
             <!-- 4. TORTA DE LIMÃO MERINGADA -->
             <section id="pie" class="tab-content hidden">
-                <h2 class="text-3xl font-bold mb-6 text-orange-600">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-orange-600">
                     Torta de Limão Assada com Merengue Suíço
                 </h2>
-                <p class="text-xl mb-6 text-gray-700">
+                <p class="text-lg sm:text-xl mb-6 text-gray-700">
                     Uma torta cremosa com recheio de leite condensado/creme de leite e finalizada com merengue. A massa vai ao forno, mas o recheio é assado rapidamente.
                 </p>
 
                 <!-- Ingredientes Card -->
                 <div class="recipe-card p-4 rounded-lg mb-6">
-                    <h3 class="text-2xl font-semibold text-orange-700 mb-3">Ingredientes (Forma Removível de 24-26cm)</h3>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-orange-700 mb-3">Ingredientes (Forma Removível de 24-26cm)</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-lg">
                         <div>
                             <p class="font-bold">Para a Massa:</p>
@@ -281,14 +291,14 @@
                 <!-- Modo de Preparo -->
                 <h3 class="text-2xl font-semibold mb-3 text-orange-700">Modo de Preparo</h3>
                 <h4 class="text-xl font-medium mt-4 mb-2">1. Massa e Pré-Assado:</h4>
-                <ol class="list-decimal ml-6 space-y-2 text-xl">
+                <ol class="list-decimal ml-6 space-y-2 text-base sm:text-xl">
                     <li>Triture a Bolacha Maizena até virar uma farofa fina. Misture a farofa com a manteiga derretida até formar uma massa homogênea.</li>
                     <li>Forre o fundo e as laterais de uma forma de fundo removível (24-26cm) com essa massa. Pressione bem.</li>
                     <li>Leve ao forno pré-aquecido a 180°C por cerca de 10 a 15 minutos, até que as bordas estejam levemente douradas. Retire e reserve.</li>
                 </ol>
 
                 <h4 class="text-xl font-medium mt-4 mb-2">2. Recheio e Assado Rápido:</h4>
-                <ol class="list-decimal ml-6 space-y-2 text-xl" start="4">
+                <ol class="list-decimal ml-6 space-y-2 text-base sm:text-xl" start="4">
                     <li>No liquidificador ou batedeira, bata o Leite Condensado, o Creme de Leite e as raspas de limão. Adicione o suco de limão aos poucos, enquanto bate, até que a mistura engrosse.</li>
                     <li>Despeje o recheio sobre a massa pré-assada.</li>
                     <li>Leve a torta de volta ao forno a 160°C por apenas 15 a 20 minutos. O recheio deve firmar nas bordas, mas o centro deve estar levemente mole. Isso garante a cremosidade.</li>
@@ -296,7 +306,7 @@
                 </ol>
 
                 <h4 class="text-xl font-medium mt-4 mb-2">3. Merengue Suíço (Apenas no Dia de Servir):</h4>
-                <ol class="list-decimal ml-6 space-y-2 text-xl" start="7">
+                <ol class="list-decimal ml-6 space-y-2 text-base sm:text-xl" start="7">
                     <li>Em banho-maria (bacia sobre panela com água fervente, sem tocar na água), misture as claras e o açúcar. Mexa vigorosamente até que o açúcar dissolva completamente e a mistura atinja cerca de 60°C (ou até que, ao tocar, você não sinta mais os grãos de açúcar).</li>
                     <li>Retire do banho-maria e bata na batedeira em velocidade alta até que o merengue fique firme, brilhante e frio.</li>
                     <li>Decore a torta gelada com o merengue usando um saco de confeitar ou espátula. Se quiser um toque dourado, use um maçarico culinário ou leve a torta rapidamente (menos de 1 minuto) sob o grill do forno.</li>
@@ -305,10 +315,10 @@
 
             <!-- 5. LISTA DE COMPRAS (COM CHECKBOXES E ESPAÇAMENTO CORRIGIDO) -->
             <section id="list" class="tab-content hidden">
-                <h2 class="text-3xl font-bold mb-6 text-orange-600">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-orange-600">
                     Lista de Compras Completíssima
                 </h2>
-                <p class="text-xl mb-6 text-gray-700">
+                <p class="text-lg sm:text-xl mb-6 text-gray-700">
                     Use as caixas de seleção para marcar os itens que você já comprou no mercado.
                 </p>
 
@@ -316,7 +326,7 @@
                     <!-- Coluna 1: Proteínas, Laticínios e Enlatados -->
                     <div>
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Aves e Ovos</h3>
+                            <h3 class="text-xl sm:text-2xl font-semibold text-yellow-800 mb-3">Aves e Ovos</h3>
                             <div class="ml-5 space-y-1">
                                 <label class="purchase-item">
                                     <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
@@ -330,7 +340,7 @@
                         </div>
 
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Laticínios e Geladeira</h3>
+                            <h3 class="text-xl sm:text-2xl font-semibold text-yellow-800 mb-3">Laticínios e Geladeira</h3>
                             <div class="ml-5 space-y-1">
                                 <label class="purchase-item">
                                     <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
@@ -351,7 +361,7 @@
                     <!-- Coluna 2: Hortifrúti e Mercearia -->
                     <div>
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Hortifrúti (Frutas e Legumes)</h3>
+                            <h3 class="text-xl sm:text-2xl font-semibold text-yellow-800 mb-3">Hortifrúti (Frutas e Legumes)</h3>
                             <div class="ml-5 space-y-1">
                                 <label class="purchase-item">
                                     <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
@@ -377,7 +387,7 @@
                         </div>
 
                         <div class="recipe-card p-4 rounded-lg mb-4">
-                            <h3 class="text-2xl font-semibold text-yellow-800 mb-3">Mercearia e Temperos</h3>
+                            <h3 class="text-xl sm:text-2xl font-semibold text-yellow-800 mb-3">Mercearia e Temperos</h3>
                             <div class="ml-5 space-y-1">
                                 <label class="purchase-item">
                                     <input type="checkbox" class="form-checkbox text-orange-500 rounded border-gray-300 focus:ring-orange-500">
@@ -421,12 +431,12 @@
                 </div>
 
                 <!-- Estimativa de Custo -->
-                <div class="p-4 rounded-lg mt-6 meringue-alert text-lg">
-                    <h3 class="font-bold text-2xl text-orange-800 mb-1">Estimativa de Custo</h3>
+                <div class="p-4 rounded-lg mt-6 meringue-alert text-base sm:text-lg">
+                    <h3 class="font-bold text-xl sm:text-2xl text-orange-800 mb-1">Estimativa de Custo</h3>
                     <p class="text-lg">
                         O custo total estimado da sua lista de compras (incluindo margem de 15%):
                     </p>
-                    <p class="text-3xl font-extrabold text-orange-600 mt-2">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-orange-600 mt-2">
                         R$ 175,00 a R$ 205,00
                     </p>
                     <p class="text-xs mt-1">
